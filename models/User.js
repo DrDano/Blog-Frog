@@ -35,13 +35,13 @@ User.init(
     },
     identicon: {
         type: DataTypes.BLOB('long'),
-        default: generateIdenticon(this.username),
     },
   },
   {
     hooks: {
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.identicon = await generateIdenticon(newUserData.username);
         return newUserData;
       },
 
