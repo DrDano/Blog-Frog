@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 
 // Defining handlebars instance for use in views
-const hbs = exhbs.create({});
+const hbs = exphbs.create({});
 
 // ============================================================================
-// === Session created with default storage through sequelize table ===
+// === Session created with default storage through sequelize table ===========
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -26,9 +26,11 @@ const sess = {
     })
 };
 // ============================================================================
+// ============================================================================
+
 
 // ============================================================================
-// Telling express what to use for its functionality
+// === Telling express what to use for its functionality ======================
 app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -42,3 +44,5 @@ app.use(require('./controllers/'));
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`${PORT}`));
 });
+// =============================================================================
+// =============================================================================
