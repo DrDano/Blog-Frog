@@ -1,10 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
+const md5 = require("md5")
+const identicon = require("identicon.js")
 
 class User extends Model {
   passwordVerify(password) {
     return bcrypt.compareSync(password, this.password);
+  }
+  generateIdenticon(username) {
+    return new identicon(md5(username), 420).toString();
   }
 }
 
@@ -30,6 +35,7 @@ User.init(
     },
     identicon: {
         type: DataTypes.BLOB('long'),
+        default: generateIdenticon(this.username),
     },
   },
   {
