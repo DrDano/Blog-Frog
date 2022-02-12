@@ -27,14 +27,14 @@ Post.init(
       references: {
         model: "user",
         key: "id",
-      },
-    },
+      }
+    }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    model: "post",
+    modelName: 'post'
   }
 );
 
