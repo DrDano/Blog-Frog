@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get('/id:', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
     try {
         const postData = await Post.findOne({
             where: {
@@ -52,7 +52,7 @@ router.get('/id:', async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_body', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id','comment_body', 'created_at'],
                     include: {
                         model: User,
                         attributes: ["username"]
@@ -60,7 +60,7 @@ router.get('/id:', async (req, res) => {
                 },
                 {
                     model: User,
-                    attributes: ["username"]
+                    attributes: ["username", "identicon"]
                 }
             ]
         });
@@ -73,7 +73,7 @@ router.get('/id:', async (req, res) => {
         const post = postData.get({plain: true})
         res.render('selected-post', {
             post,
-            loggedIn: req.session.loggedIn
+            // loggedIn: req.session.loggedIn
         });
     }
     catch (err) {

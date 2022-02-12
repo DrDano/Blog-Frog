@@ -1,0 +1,29 @@
+<article>
+  <div>
+    <a class="link-light" href="{{post_url}}" target="_blank">{{title}}</a>
+  </div>
+
+  <form>
+    <div>
+      <textarea name="comment-body"></textarea>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+  </form>
+  <div>
+    {{#each this}}
+      <section class="bg-success">
+        <div>
+          {{user.username}} 
+          on
+          {{created_at}}
+        </div>
+        <div>
+          {{comment_body}}
+        </div>
+      </section>
+    {{/each}}
+  </div>
+</article>
