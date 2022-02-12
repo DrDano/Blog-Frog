@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'created_at'],
+                    attributes: ['id', 'comment_body', 'created_at'],
                     include: {
                         model: Post,
                         attributes: ['title']
@@ -59,6 +59,7 @@ router.post('/', async (req, res) => {
 
         const identicon = await userData.generateIdenticon(req.body.username);
         userData.set({identicon: identicon})
+        userData.save();
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -155,7 +156,7 @@ router.delete('/:id', async (req, res) => {
             return;
         }
         res.json(userData);
-        res.redirect('../../')
+        res.redirect('..')
     }
     catch (err) {
         console.log(err);
