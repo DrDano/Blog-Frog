@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    res.render('front-page', [...postData.get({ plain: true })]);
+    res.render('layouts/main', postData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

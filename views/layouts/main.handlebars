@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Frog</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <a href="/" class="link-light">Blog Frog</a>
+        </h1>
+        <nav>
+          {{#if loggedIn}}
+            <a href="/dashboard" class="link-light">Your Dashboard</a>
+            <button id="logout" class="btn btn-warning">logout</button>
+          {{else}}
+            <a href="/login" class="link-light">login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
+      <footer>
+        Thanks for visiting!
+      </footer>
+    </div>
+
+    {{#if loggedIn}}
+      <script src="/javascript/login.js"></script>
+    {{/if}}
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
