@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["username", "identicon"],
           },
         },
         {
@@ -28,7 +28,9 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    res.render('layouts/main', postData);
+    const posts = postData.map(post => post.get({ plain: true }));
+
+    res.render('front-page', {posts});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -1,0 +1,10 @@
+<dl class="row my-6">
+    {{#each posts as |post|}}
+    <dt>
+        <a class="link-light" href="{{post_url}}" target="_blank">{{title}}</a>
+    </dt>
+    <dd>
+        <a class="link-dark" href="/post/{{id}}"> {{comments.length}} comment(s)</a>
+    </dd>
+    {{/each}}
+</dl>
