@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/id:', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const userData = await User.findOne({
             attributes: { exclude: ['password', 'identicon'] },
@@ -42,7 +42,7 @@ router.get('/id:', async (req, res) => {
             res.status(404).json({ message: 'No user matches this id'});
             return;
         }
-        res.status(200).json(userData);
+        res.json(userData);
     }
     catch (err) {
         console.log(err);
@@ -56,6 +56,9 @@ router.post('/', async (req, res) => {
             username: req.body.username,
             password: req.body.password,
         });
+
+        const identicon = await userData.generateIdenticon(req.body.username);
+        userData.set({identicon: identicon})
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -117,7 +120,7 @@ router.post('/logout', (req, res) => {
         }
     });
 
-router.put('/id:', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const userData = await User.update(req.body, {
             individualHooks: true,
@@ -139,7 +142,7 @@ router.put('/id:', async (req, res) => {
     }
 });
 
-router.delete('/id:', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const userData = await User.destroy({
             where: {

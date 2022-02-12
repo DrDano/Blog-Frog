@@ -8,9 +8,9 @@ class User extends Model {
   passwordVerify(password) {
     return bcrypt.compareSync(password, this.password);
   }
-  // generateIdenticon(username) {
-  //   return new identicon(md5(username), 420).toString();
-  // }
+  generateIdenticon(username) {
+    return new identicon(md5(username), 420).toString();
+  }
 }
 
 User.init(
@@ -33,15 +33,14 @@ User.init(
         len: [4],
       },
     },
-    // identicon: {
-    //     type: DataTypes.BLOB('long'),
-    // },
+    identicon: {
+        type: DataTypes.BLOB('long'),
+    },
   },
   {
     hooks: {
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        // newUserData.identicon = await generateIdenticon(newUserData.username);
         return newUserData;
       },
 
