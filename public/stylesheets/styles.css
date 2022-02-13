@@ -1,3 +1,21 @@
 body {
     background-color: rgba(46, 78, 68, 0.836)
 }
+
+header {
+    display: flex;
+    flex-grow: 0;
+}
+
+nav {
+    display: flex;
+    flex-grow: 1000;
+    margin-top: 3rem;
+    margin-left: 20rem;
+}
+
+main {
+    display: flex;
+    margin-bottom: 35rem;
+    margin-top: 4rem;
+}
