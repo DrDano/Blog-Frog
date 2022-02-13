@@ -18,12 +18,12 @@ router.get("/", async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ["username", "identicon"],
+            attributes: ["username"],
           },
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       ],
     });
@@ -93,5 +93,9 @@ router.get('/login', (req, res) => {
 
     res.render('login-page');
 });
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
 
 module.exports = router;

@@ -1,10 +1,15 @@
 <dl class="row my-6">
-    {{#each posts as |post|}}
-    <dt>
+  {{#each posts as |post|}}
+    <div name="user-post">
+      <dt>
+        <h5 user-id="{{user.id}}">{{user.username}}</h5>
         <a class="link-light" href="{{post_url}}" target="_blank">{{title}}</a>
-    </dt>
-    <dd>
-        <a class="link-dark" href="posts/{{id}}"> {{comments.length}} comment(s)</a>
-    </dd>
-    {{/each}}
+      </dt>
+      <dd>
+        <a class="link-dark" href="posts/{{id}}">
+          {{comments.length}}
+          comment(s)</a>
+      </dd>
+    </div>
+  {{/each}}
 </dl>
