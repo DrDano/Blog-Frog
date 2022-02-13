@@ -2,7 +2,6 @@ async function getUser(event) {
   // event.preventDefault();
 
   const postsArr = document.getElementsByName("user-post");
-  console.log(postsArr.length);
 
   postsArr.forEach(async (post) => {
     let userId = post.querySelector("h5").getAttribute("user-id");
@@ -18,7 +17,6 @@ async function getUser(event) {
         }
       })
       .then((response) => {
-        console.log(response);
         let binaryData = [];
         binaryData.push(response.identicon);
         const image = URL.createObjectURL(
