@@ -1,23 +1,31 @@
-const commentFetch = function (value) {
-  console.log("fetching comment");
-  const postId = value.postId;
-  const comment = value.comment;
-  const fetchResponse = await fetch("/api/comments", {
-    method: "POST",
-    body: JSON.stringify({
-      postId,
-      comment,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+async function commentHandler(event) {
+  event.preventDefault();
+  let target = event.target;
 
-  if (fetchResponse.ok) {
-    document.location.reload();
-  } else {
-    alert(fetchResponse.statusText);
+  const comment_body = document.querySelector("textarea[name='comment-body']").value.trim();
+  const post_id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
+
+  if (comment_body) {
+    const fetchResponse = await fetch("/api/comments", {
+      method: "POST",
+      body: JSON.stringify({
+        "comment_body": comment_body,
+        "post_id": post_id
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (fetchResponse.ok) {
+      console.log("ok!");
+      document.location.reload();
+    } else {
+      alert(fetchResponse.statusText);
+    }
   }
-};
+}
 
-module.exports = commentFetch;
+document.querySelector("#comment-form").addEventListener("submit", commentHandler);
