@@ -3,15 +3,17 @@
     <a class="link-light" href="{{post_url}}" target="_blank">{{title}}</a>
   </div>
 
-  <form>
+  {{!-- {{#if loggedIn}} --}}
+  <form id="comment-form">
     <div>
       <textarea name="comment-body"></textarea>
     </div>
 
     <div>
-      <button type="submit" class="btn btn-secondary">Submit</button>
+      <button type="submit" class="btn btn-secondary" name="comment-submit">Submit</button>
     </div>
   </form>
+  {{!-- {{/if}} --}}
   <div>
     {{#each post.comments}}
       <section class="bg-success">
@@ -27,3 +29,7 @@
     {{/each}}
   </div>
 </article>
+
+{{!-- {{#if loggedIn}} --}}
+<script src="/javascript/pageHandler.js"></script>
+{{!-- {{/if}} --}}
