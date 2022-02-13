@@ -4,7 +4,7 @@ const { User, Post, Comment } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
-            attributes: { exclude: ['password', 'identicon'] }
+            attributes: { exclude: ['identicon'] }
         });
 
         res.json(userData);
@@ -85,7 +85,7 @@ router.post('/login', async (req, res) => {
 
         if (!userData) {
             res.status(400).json({ message: 'Username not found, redirecting you to user sign up form!'})
-            res.redirect('..')
+            res.redirect('../signup')
             return;
         }
 

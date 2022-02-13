@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
-const md5 = require("md5")
-const identicon = require("identicon.js")
+const md5 = require("md5");
+const identicon = require("identicon.js");
 
 class User extends Model {
   passwordVerify(password) {
@@ -34,7 +34,7 @@ User.init(
       },
     },
     identicon: {
-        type: DataTypes.BLOB('long'),
+      type: DataTypes.BLOB("long"),
     },
   },
   {
@@ -45,12 +45,9 @@ User.init(
       },
 
       async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password,10);
         return updatedUserData;
-      },
+      }
     },
     sequelize,
     timestamps: false,
