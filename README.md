@@ -44,7 +44,7 @@ Relevancy-based tech networking
 
   Create a .env file in the root of the repo and paste the following into it with your mysql password:
   ```
-    DB_NAME="ecommerce_db"
+    DB_NAME="blogfrog_db"
     DB_USER="root"
     DB_PW="your password here"
   ```
