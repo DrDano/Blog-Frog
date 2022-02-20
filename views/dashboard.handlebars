@@ -1,8 +1,10 @@
-<section>
+<div class="container">
+<div class="row">
+<section class="col-4">
   <h3 class="">Create New Post</h2>
 
-    <div class="card">
-        <div class="card-body">
+    <div class="card w-auto">
+        <div class="card-body w-auto text-center">
             <form id="create-post-form d-flex">
                 <div>
                     <label for="post-title">Title</label>
@@ -18,9 +20,9 @@
     </div>
 </section>
 {{#if posts.length}}
-<section>
-    <div class="card">
-        <div class="card-body">
+<section class="col-8">
+    <div class="card w-100 my-5 px-3 bg-light">
+        <div class="card-body w-auto text-center">
             <h2>Your Posts</h2>
             <ol>
                 {{#each posts as |post|}}
@@ -34,4 +36,7 @@
     </div>
 </section>
 {{/if}}
+</div>
+</div>
+
 {{!-- <script src="/javascript/add-post.js"></script> --}}
