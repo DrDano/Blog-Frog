@@ -1,0 +1,37 @@
+<section>
+  <h3 class="">Create New Post</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="create-post-form d-flex">
+                <div>
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" name="post-title" />
+                </div>
+                <div class="top-buffer">
+                    <label for="post-url">Link</label>
+                    <input id="post-url" name="post-url" />
+                </div>
+                <button type="submit" class="btn btn-warning top-buffer">Create</button>
+            </form>
+        </div>
+    </div>
+</section>
+{{#if posts.length}}
+<section>
+    <div class="card">
+        <div class="card-body">
+            <h2>Your Posts</h2>
+            <ol>
+                {{#each posts as |post|}}
+                <li>
+                <div>{{post}}</div>
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+</section>
+{{/if}}
+{{!-- <script src="/javascript/add-post.js"></script> --}}

@@ -18,6 +18,7 @@ async function createUserHandler(event) {
   
       if (fetchResponse.ok) {
         document.location.replace('/');
+        document.location.reload
   
       } else {
         alert(fetchResponse.statusText);
@@ -25,6 +26,4 @@ async function createUserHandler(event) {
     } else alert("Please complete both form fields and then submit again.");
   }
   
-  document
-    .querySelector("form[name='login-form']")
-    .addEventListener("submit", createUserHandler);
+  document.querySelector("form[name='login-form']").addEventListener("submit", createUserHandler);
