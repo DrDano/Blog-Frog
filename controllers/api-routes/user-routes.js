@@ -57,10 +57,6 @@ router.post('/', async (req, res) => {
             password: req.body.password,
         });
 
-        const identicon = await userData.generateIdenticon(req.body.username);
-        userData.set({identicon: identicon})
-        userData.save();
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
@@ -85,7 +81,6 @@ router.post('/login', async (req, res) => {
 
         if (!userData) {
             res.status(400).json({ message: 'Username not found, redirecting you to user sign up form!'})
-            res.redirect('../signup')
             return;
         }
 

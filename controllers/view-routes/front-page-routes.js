@@ -91,7 +91,9 @@ router.get('/login', (req, res) => {
         return;
     }
 
-    res.render('login');
+    res.render('login', {
+      loggedIn: req.session.loggedIn
+    });
 });
 
 router.get('/signup', (req, res) => {

@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
+
   <body>
     <div class="container">
       <header>
         <h1 class="display-1">
-          <a href="/" class="link-light">Blog Frog</a>
+          <a href="/" class="link-unstyled link-light">Blog Frog</a>
         </h1>
         <nav>
           {{#if loggedIn}}
-            <a href="/dashboard" class="link-light">Your Dashboard</a>
+            <a href="/dashboard" class="link-light mx-4">Your Dashboard</a>
             <button id="logout" class="btn btn-warning">logout</button>
           {{else}}
             <a href="/login" class="link-light mx-4">login</a>

@@ -31,10 +31,10 @@ User.init(
       },
     },
     identicon: {
-      type: DataTypes.BLOB("long"),
+      type: DataTypes.BLOB,
       get() {
         const rawData = this.getDataValue('username');
-        return new identicon(md5(username), 420).toString();
+        return new identicon(md5(rawData), 420).toString();
       }
     },
   },

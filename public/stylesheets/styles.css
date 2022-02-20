@@ -19,3 +19,11 @@ main {
     margin-bottom: 35rem;
     margin-top: 4rem;
 }
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+    text-decoration: inherit;
+  }
+
+.top-buffer { 
+    margin-top:20px; 
+}
