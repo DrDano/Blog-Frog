@@ -6,11 +6,7 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Defining sequelize storage for all other data besides the browser session
 const sequelize = require('./config/connection');
-
-// Defining handlebars instance for use in views
-const hbs = exphbs.create({});
 
 // ============================================================================
 // === Session created with default storage through sequelize table ===========
@@ -32,6 +28,10 @@ const sess = {
 // ============================================================================
 // === Telling express what to use for its functionality ======================
 app.use(session(sess));
+
+// Defining handlebars instance for use in views
+const hbs = exphbs.create({});
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

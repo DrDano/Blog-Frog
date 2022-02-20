@@ -8,9 +8,6 @@ class User extends Model {
   passwordVerify(password) {
     return bcrypt.compareSync(password, this.password);
   }
-  generateIdenticon(username) {
-    return new identicon(md5(username), 420).toString();
-  }
 }
 
 User.init(
@@ -35,6 +32,10 @@ User.init(
     },
     identicon: {
       type: DataTypes.BLOB("long"),
+      get() {
+        const rawData = this.getDataValue('username');
+        return new identicon(md5(username), 420).toString();
+      }
     },
   },
   {

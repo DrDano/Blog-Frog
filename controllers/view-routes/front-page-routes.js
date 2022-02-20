@@ -63,7 +63,7 @@ router.get('/posts/:id', async (req, res) => {
                 },
                 {
                     model: User,
-                    attributes: ["username", "identicon"]
+                    attributes: ["username"]
                 }
             ]
         });

@@ -17,7 +17,7 @@ Post.init(
     },
     post_url: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       validate: {
         isURL: true,
       },
