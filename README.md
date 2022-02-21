@@ -14,6 +14,8 @@ Relevancy-based tech networking
 
   ## Description
 
+  ![frog-network](./public/images/frog-network.jpg)
+
   This application is deployed to Heroku.
 
   Blog Frog is a tech networking app that lends itself to people who work with technology and are looking for a custom networking solution.
