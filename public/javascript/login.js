@@ -1,4 +1,4 @@
-async function createUserHandler(event) {
+async function loginUserHandler(event) {
     event.preventDefault();
   
     const username = document.getElementById("username-login").value.trim();
@@ -26,4 +26,4 @@ async function createUserHandler(event) {
     } else alert("Please complete both form fields and then submit again.");
   }
   
-  document.querySelector("form[name='login-form']").addEventListener("submit", createUserHandler);
+  document.querySelector("form[name='login-form']").addEventListener("submit", loginUserHandler);
