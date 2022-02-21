@@ -28,11 +28,9 @@ router.get('/', async function (req, res) {
                   attributes: ['username']
                 }
               ]
-            });
-        console.log(req.session)
-        const posts = postData.map(post => {
-            post.get({ plain: true });
-        })
+        });
+        
+        const posts = postData.map(post => post.get({ plain: true }))
 
         res.render('dashboard', { posts, loggedIn: true });
     }

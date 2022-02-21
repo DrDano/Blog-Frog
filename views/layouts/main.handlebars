@@ -4,17 +4,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Frog</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/styles.css" />
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <h1 class="display-1">
-          <a href="/" class="link-unstyled link-light">Blog Frog</a>
-        </h1>
-        <nav>
+    <div>
+      <header class="w-auto">
+        <nav class="navbar navbar-dark bg-dark w-auto mx-5">
+          <h1 class="display-1">
+            <a href="/" class="link-unstyled link-light">Blog Frog</a>
+          </h1>
           {{#if loggedIn}}
             <a href="/dashboard" class="link-light mx-4">Your Dashboard</a>
             <button id="logout" class="btn btn-warning">logout</button>

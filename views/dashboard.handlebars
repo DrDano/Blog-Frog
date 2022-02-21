@@ -23,13 +23,17 @@
 <section class="col-8">
     <div class="card w-100 my-5 px-3 bg-light">
         <div class="card-body w-auto text-center">
-            <h2>Your Posts</h2>
+            <h2>Your Best Work</h2>
             <ol>
                 {{#each posts as |post|}}
-                <li>
-                <div>{{post}}</div>
-                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-                </li>
+                <div class="my-3">
+                    <li>
+                    <div>
+                        <a href="../posts/{{post.id}}" class="link-unstyled link-dark">{{post.title}}</a>
+                    </div>
+                        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                    </li>
+                </div>
                 {{/each}}
             </ol>
         </div>

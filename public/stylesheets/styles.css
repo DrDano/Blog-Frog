@@ -5,10 +5,13 @@ body {
 header {
     display: flex;
     flex-grow: 0;
+    background-color: rgb(33, 37, 41);
+    position: static;
 }
 
 nav {
     display: flex;
+    justify-content: space-between;
     flex-grow: 1000;
     margin-top: 3rem;
     margin-left: 20rem;
