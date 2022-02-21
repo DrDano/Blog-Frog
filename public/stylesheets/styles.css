@@ -30,3 +30,9 @@ main {
 .top-buffer { 
     margin-top:20px; 
 }
+
+.row-container {
+    display: flex;
+    flex-grow: 1000;
+    margin-top: 2rem;
+}

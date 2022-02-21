@@ -3,7 +3,7 @@
     <a class="link-warning font-size-20 link-unstyled" href="{{post_url}}" target="_blank"><h3>{{post.title}}</h3></a>
   </div>
 
-  {{!-- {{#if loggedIn}} --}}
+  {{#if loggedIn}}
   <form id="comment-form">
     <div>
       <textarea name="comment-body"></textarea>
@@ -13,7 +13,7 @@
       <button type="submit" class="btn btn-secondary" name="comment-submit">Submit</button>
     </div>
   </form>
-  {{!-- {{/if}} --}}
+  {{/if}}
   <div>
     {{#each post.comments}}
       <section class="bg-success">
