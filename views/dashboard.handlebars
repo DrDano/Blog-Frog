@@ -1,10 +1,10 @@
 <div class="container">
-<div class="row row-container">
-<section class="col-4">
+<div class="row" name="dashboard-container">
+<section class="col-4 w-auto">
   <h3 class="">Create New Post</h2>
 
     <div class="card w-auto">
-        <div class="card-body w-auto text-center">
+        <div class="card-body w-100 text-center">
             <form id="create-post-form">
                 <div>
                     <label for="post-title">Title</label>
@@ -20,18 +20,18 @@
     </div>
 </section>
 {{#if posts.length}}
-<section class="col-8">
-    <div class="card w-100 my-5 px-3 bg-light">
+<section class="col-8 w-auto">
+    <h2>Your Best Work</h2>
+    <div class="card w-100 my-1 px-3 bg-light">
         <div class="card-body w-auto text-center">
-            <h2>Your Best Work</h2>
             <ol>
                 {{#each posts as |post|}}
-                <div class="my-3">
+                <div class="my-3 container">
                     <li>
-                    <div>
+                    <div class="col-10">
                         <a href="../posts/{{post.id}}" class="link-unstyled link-dark">{{post.title}}</a>
-                    </div>
-                        <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                    </div class="col-2">
+                        <button class="btn btn-secondary btn-sm" name="edit-post" id="{{post.id}}">Edit post</button>
                     </li>
                 </div>
                 {{/each}}
@@ -44,3 +44,4 @@
 </div>
 
 <script src="/javascript/create-post.js"></script>
+<script src="/javascript/edit-post.js"></script>
