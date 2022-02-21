@@ -30,13 +30,6 @@ User.init(
         len: [4],
       },
     },
-    identicon: {
-      type: DataTypes.BLOB,
-      get() {
-        const rawData = this.getDataValue('username');
-        return new identicon(md5(rawData), 420).toString();
-      }
-    },
   },
   {
     hooks: {

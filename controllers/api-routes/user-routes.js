@@ -3,9 +3,7 @@ const { User, Post, Comment } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-        const userData = await User.findAll({
-            attributes: { exclude: ['identicon'] }
-        });
+        const userData = await User.findAll();
 
         res.json(userData);
     }
