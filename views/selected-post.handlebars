@@ -1,6 +1,6 @@
 <article>
   <div>
-    <a class="link-warning font-size-20 link-unstyled" href="{{post_url}}" target="_blank"><h3>{{post.title}}</h3></a>
+    <a class="link-warning font-size-20 link-unstyled" href="{{post.post_url}}" target="_blank"><h3>{{post.title}}</h3></a>
   </div>
 
   {{#if loggedIn}}
@@ -31,6 +31,6 @@
   </div>
 </article>
 
-{{!-- {{#if loggedIn}} --}}
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-{{!-- {{/if}} --}}
+{{/if}}
