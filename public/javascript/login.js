@@ -17,8 +17,8 @@ async function createUserHandler(event) {
       });
   
       if (fetchResponse.ok) {
-        document.location.replace('/');
         document.location.reload
+        document.location.replace('/');
   
       } else {
         alert(fetchResponse.statusText);
